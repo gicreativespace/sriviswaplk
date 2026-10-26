@@ -1,0 +1,317 @@
+:root {
+    --primary-blue: #0F4C81;
+    --secondary-blue: #0088CC;
+    --accent-green: #3F8F29;
+    --bg-light: #F8FAFC;
+    --white: #FFFFFF;
+    --text-dark: #1E293B;
+    --text-light: #64748B;
+    --border-color: #E2E8F0;
+    --shadow-soft: 0 8px 24px rgba(15, 76, 129, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Screen Management --- */
+.screen {
+    display: none;
+    flex: 1;
+    padding: 24px;
+    flex-direction: column;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.screen.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Splash Screen --- */
+#splash-screen {
+    justify-content: center;
+    align-items: center;
+    background: var(--white);
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+}
+
+.splash-logo {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-color);
+    border-top: 3px solid var(--primary-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* --- Role Selection Screen --- */
+.role-header {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.role-header h1 {
+    font-size: 32px;
+    line-height: 1.2;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.role-header h1 span {
+    color: var(--primary-blue);
+}
+
+.role-header p {
+    color: var(--text-light);
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.role-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.role-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 12px rgba(15, 76, 129, 0.05);
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin-right: 16px;
+}
+
+.blue-icon {
+    background: rgba(15, 76, 129, 0.1);
+    color: var(--primary-blue);
+}
+
+.green-icon {
+    background: rgba(63, 143, 41, 0.1);
+    color: var(--accent-green);
+}
+
+.text-box {
+    flex: 1;
+}
+
+.text-box h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.text-box p {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 2px;
+}
+
+.arrow {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+/* --- Login Screen (Placeholder) --- */
+.top-bar {
+    margin-bottom: 20px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-dark);
+    cursor: pointer;
+    padding: 8px;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    text-align: center;
+}
+
+.login-container h2 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    color: var(--text-light);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: auto;
+    padding-bottom: 30px;
+}
+
+.gi-text {
+    font-weight: 600;
+    color: var(--primary-blue);
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.3s;
+}
+
+.gi-text:hover {
+    text-decoration-color: var(--primary-blue);
+}
+
+/* --- GI Popup Modal --- */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.popup-overlay.active {
+    display: flex;
+}
+
+.popup-card {
+    background: var(--white);
+    width: 100%;
+    max-width: 350px;
+    border-radius: 24px;
+    padding: 24px;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.popup-header h3 {
+    color: var(--primary-blue);
+    font-size: 20px;
+}
+
+.close-btn {
+    background: var(--bg-light);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: var(--text-light);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.call-btn {
+    background: rgba(15, 76, 129, 0.1);
+    color: var(--primary-blue);
+}
+
+.wa-btn {
+    background: rgba(63, 143, 41, 0.1);
+    color: var(--accent-green);
+}
+
+.hidden-trigger {
+    text-align: center;
+    font-size: 11px;
+    color: #cbd5e1;
+    margin-top: 20px;
+    cursor: pointer;
+}
