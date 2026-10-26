@@ -1,0 +1,31 @@
+<div class="dashboard-container">
+    <div id="header-container"></div>
+
+    <div class="dash-content">
+        <div class="page-top-bar">
+            <h3 class="section-title">Create Announcement</h3>
+        </div>
+
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="switchTab(this, 'class')">🏫 Class Notice</button>
+            <button class="tab-btn" onclick="switchTab(this, 'school')">📢 School Notice</button>
+        </div>
+
+        <div class="input-group" id="class-selector-group" style="margin-top: 20px;">
+            <label>Select Class</label>
+            <select>
+                <option>Class IX</option>
+                <option>Class VIII</option>
+            </select>
+        </div>
+
+        <div class="input-group" style="margin-top: 20px;">
+            <label>Announcement Message</label>
+            <textarea class="subject-textarea" style="min-height: 120px;" placeholder="Type your announcement here..."></textarea>
+        </div>
+
+        <div class="sticky-bottom">
+            <button class="btn-primary" onclick="alert('Sent to Principal for Approval!')">Send for Approval</button>
+        </div>
+    </div>
+</div>
