@@ -1,0 +1,30 @@
+<div class="dashboard-container">
+    <header class="dash-header">
+        <div class="header-left">
+            <img src="assets/images/logo.png" alt="Logo" class="mini-logo">
+            <h2>Incharge Panel</h2>
+        </div>
+        <button class="logout-btn" onclick="loadSection('role-selection')">Logout</button>
+    </header>
+
+    <div class="dash-content">
+        <h3 class="section-title">Create Classroom</h3>
+        <div class="form-card">
+            <div class="input-group">
+                <label>Select Class</label>
+                <select>
+                    <option>Class 1</option>
+                    <option>Class 2</option>
+                    <option>Class 10A</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Class Strength (Number of Students)</label>
+                <input type="number" placeholder="e.g. 40">
+            </div>
+            <button class="btn-primary" onclick="alert('Next: Roll number boxes will open here to enter student names & DOBs')">
+                Generate Roll Number Boxes
+            </button>
+        </div>
+    </div>
+</div>
