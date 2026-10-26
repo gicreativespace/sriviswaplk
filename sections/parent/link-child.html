@@ -1,0 +1,36 @@
+<div class="auth-container">
+    <div class="auth-header">
+        <button class="back-btn" onclick="loadSection('role-selection')"><i class="fa-solid fa-arrow-left"></i></button>
+        <h2>Link Your Child</h2>
+        <p>Enter your child's details to link</p>
+    </div>
+    <div class="form-card">
+        <div class="input-group">
+            <label>Relation</label>
+            <select>
+                <option>Father</option>
+                <option>Mother</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Parent Name</label>
+            <input type="text" placeholder="Enter your name">
+        </div>
+        <div class="input-group">
+            <label>Select Child's Class</label>
+            <select>
+                <option>Class 10A</option>
+                <option>Class 9B</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label>Roll Number</label>
+            <input type="number" placeholder="Enter roll number">
+        </div>
+        <div class="input-group">
+            <label>Child's Date of Birth (for verification)</label>
+            <input type="date">
+        </div>
+        <button class="btn-primary" onclick="alert('Child Linked Successfully! (Phase 2)')">Link Child</button>
+    </div>
+</div>
