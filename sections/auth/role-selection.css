@@ -3,20 +3,20 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    min-height: 80vh; /* ఇది యాడ్ చేయండి */
 }
 
+/* మిగిలిన కోడ్ అలాగే ఉంచండి... */
 .role-header {
     margin-top: 40px;
     margin-bottom: 40px;
 }
-
 .role-header h1 {
     font-size: 32px;
     line-height: 1.2;
     color: var(--text-dark);
     font-weight: 600;
 }
-
 .role-header h1 span { color: var(--primary-blue); }
 .role-header p { color: var(--text-light); font-size: 15px; margin-top: 8px; }
 
@@ -33,7 +33,6 @@
     cursor: pointer;
     transition: transform 0.2s ease;
 }
-
 .role-card:active { transform: scale(0.98); }
 
 .icon-box {
@@ -42,7 +41,6 @@
     display: flex; justify-content: center; align-items: center;
     font-size: 24px; margin-right: 16px;
 }
-
 .blue-icon { background: rgba(15, 76, 129, 0.1); color: var(--primary-blue); }
 .green-icon { background: rgba(63, 143, 41, 0.1); color: var(--accent-green); }
 
