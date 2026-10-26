@@ -4,71 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sri Viswa Connect</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
+    
+    <!-- PWA ADDITIONS -->
+    <meta name="theme-color" content="#0F4C81">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="assets/images/icon-192.png">
+    
+    <link rel="stylesheet" href="assets/css/global.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="sections/auth/role-selection.css">
 </head>
 <body>
 
-    <!-- 1. SPLASH SCREEN -->
-    <div id="splash-screen" class="screen active">
+    <!-- GLOBAL SPLASH SCREEN -->
+    <div id="global-splash" class="splash-screen">
         <div class="splash-logo">SRI VISWA</div>
         <div class="loader"></div>
     </div>
 
-    <!-- 2. ROLE SELECTION SCREEN (First Time) -->
-    <div id="role-screen" class="screen">
-        <div class="role-header">
-            <h1>Welcome to<br><span>Sri Viswa</span></h1>
-            <p>Please select your portal to continue</p>
-        </div>
-        
-        <div class="cards-container">
-            <!-- School Portal Card -->
-            <div class="role-card" onclick="selectRole('school')">
-                <div class="icon-box blue-icon">
-                    <i class="fa-solid fa-school"></i>
-                </div>
-                <div class="text-box">
-                    <h3>School Portal</h3>
-                    <p>Staff, Teachers & Principal</p>
-                </div>
-                <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
-            </div>
-
-            <!-- Parent Portal Card -->
-            <div class="role-card" onclick="selectRole('parent')">
-                <div class="icon-box green-icon">
-                    <i class="fa-solid fa-people-roof"></i>
-                </div>
-                <div class="text-box">
-                    <h3>Parent Portal</h3>
-                    <p>Track your child's progress</p>
-                </div>
-                <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
-            </div>
-        </div>
+    <!-- MAIN APP CONTAINER -->
+    <div id="app-container">
+        <div id="section-role-selection" class="app-section"></div>
     </div>
 
-    <!-- 3. LOGIN SCREEN (Placeholder for Phase 2) -->
-    <div id="login-screen" class="screen">
-        <div class="top-bar">
-            <button class="icon-btn" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i></button>
+    <!-- INSTALL APP BANNER -->
+    <div id="install-banner" class="install-banner">
+        <div class="install-text">
+            <i class="fa-solid fa-download"></i> Install Sri Viswa App
         </div>
-        <div class="login-container">
-            <h2 id="login-title">Login</h2>
-            <p>Login functionality will be added in Phase 2.</p>
-        </div>
+        <button id="install-btn" class="install-btn">Install</button>
     </div>
 
-    <!-- FOOTER (Visible on Role & Login Screens) -->
-    <footer id="main-footer">
+    <!-- GLOBAL FOOTER -->
+    <footer id="global-footer">
         <p>© <span class="gi-text" onclick="openGiPopup()">@GI Creation</span></p>
     </footer>
 
-    <!-- GI CONTACT POPUP -->
+    <!-- GLOBAL GI POPUP -->
     <div id="gi-popup" class="popup-overlay">
         <div class="popup-card">
             <div class="popup-header">
@@ -84,11 +57,21 @@
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
-            <!-- Hidden Super Admin Trigger -->
             <p class="hidden-trigger" onclick="openSuperAdmin()">Admin Access</p>
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="assets/js/main.js" type="module"></script>
+    
+    <!-- SERVICE WORKER REGISTRATION -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker Registered!', reg))
+                    .catch(err => console.log('Service Worker Error:', err));
+            });
+        }
+    </script>
 </body>
 </html>
