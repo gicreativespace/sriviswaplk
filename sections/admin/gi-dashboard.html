@@ -1,0 +1,35 @@
+<div class="dashboard-container">
+    <header class="dash-header">
+        <div class="header-left">
+            <img src="assets/images/logo.png" alt="Logo" class="mini-logo">
+            <h2>GI Admin</h2>
+        </div>
+        <button class="logout-btn" onclick="loadSection('role-selection')">Logout</button>
+    </header>
+
+    <div class="dash-content">
+        <h3 class="section-title">Create New Login</h3>
+        <div class="form-card">
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="staff-name" placeholder="Enter name">
+            </div>
+            <div class="input-group">
+                <label>Role</label>
+                <select id="staff-role">
+                    <option value="principal">Principal</option>
+                    <option value="vp">Vice Principal</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input type="tel" id="staff-phone" placeholder="10-digit mobile">
+            </div>
+            <div class="input-group">
+                <label>Date of Birth (for PIN)</label>
+                <input type="date" id="staff-dob">
+            </div>
+            <button class="btn-primary" onclick="alert('In Phase 2, this will calculate the Master PIN and save to Firestore!')">Create Login & Generate PIN</button>
+        </div>
+    </div>
+</div>
