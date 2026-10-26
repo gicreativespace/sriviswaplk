@@ -64,3 +64,38 @@ window.addEventListener('appinstalled', () => {
 window.openGiPopup = () => document.getElementById('gi-popup').classList.add('active');
 window.closeGiPopup = () => document.getElementById('gi-popup').classList.remove('active');
 window.openSuperAdmin = () => { alert("Super Admin Access (Phase 2)"); closeGiPopup(); };
+// Dark Mode Toggle
+window.toggleDarkMode = function() {
+    document.body.classList.toggle('dark-mode');
+    const icon = document.querySelector('#dark-mode-toggle i');
+    if (document.body.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+};
+
+// Attendance Toggle
+window.markAttendance = function(btn, status) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.att-btn').forEach(b => {
+        b.classList.remove('active-p', 'active-a', 'active-l');
+    });
+    if (status === 'P') btn.classList.add('active-p');
+    if (status === 'A') btn.classList.add('active-a');
+    if (status === 'L') btn.classList.add('active-l');
+};
+
+// Tab Switcher for Announcements
+window.switchTab = function(btn, type) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const classGroup = document.getElementById('class-selector-group');
+    if (type === 'school') {
+        classGroup.style.display = 'none';
+    } else {
+        classGroup.style.display = 'flex';
+    }
+};
