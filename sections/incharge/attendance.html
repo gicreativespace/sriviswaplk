@@ -1,0 +1,63 @@
+<div class="dashboard-container">
+    <!-- Header (Loaded via JS or pasted here) -->
+    <div id="header-container"></div>
+
+    <div class="dash-content">
+        <div class="page-top-bar">
+            <h3 class="section-title">Mark Attendance</h3>
+            <span class="date-badge">26 Oct 2023</span>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 20px;">
+            <select id="attendance-class-select">
+                <option value="Class IX">Class IX (40 Students)</option>
+                <option value="Class VIII">Class VIII (35 Students)</option>
+            </select>
+        </div>
+
+        <div id="student-attendance-list" class="attendance-list">
+            <!-- Student Card 1 -->
+            <div class="attendance-card">
+                <div class="student-info">
+                    <span class="roll-badge">01</span>
+                    <span class="student-name">Ravi Kumar</span>
+                </div>
+                <div class="attendance-actions">
+                    <button class="att-btn active-p" onclick="markAttendance(this, 'P')">P</button>
+                    <button class="att-btn" onclick="markAttendance(this, 'A')">A</button>
+                    <button class="att-btn" onclick="markAttendance(this, 'L')">L</button>
+                </div>
+            </div>
+
+            <!-- Student Card 2 -->
+            <div class="attendance-card">
+                <div class="student-info">
+                    <span class="roll-badge">02</span>
+                    <span class="student-name">Sita Sharma</span>
+                </div>
+                <div class="attendance-actions">
+                    <button class="att-btn active-p" onclick="markAttendance(this, 'P')">P</button>
+                    <button class="att-btn" onclick="markAttendance(this, 'A')">A</button>
+                    <button class="att-btn" onclick="markAttendance(this, 'L')">L</button>
+                </div>
+            </div>
+            
+            <!-- Student Card 3 -->
+            <div class="attendance-card">
+                <div class="student-info">
+                    <span class="roll-badge">03</span>
+                    <span class="student-name">Arjun Reddy</span>
+                </div>
+                <div class="attendance-actions">
+                    <button class="att-btn active-p" onclick="markAttendance(this, 'P')">P</button>
+                    <button class="att-btn" onclick="markAttendance(this, 'A')">A</button>
+                    <button class="att-btn" onclick="markAttendance(this, 'L')">L</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sticky-bottom">
+            <button class="btn-primary" onclick="alert('Attendance Submitted!')">Submit Attendance</button>
+        </div>
+    </div>
+</div>
