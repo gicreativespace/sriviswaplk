@@ -1,0 +1,42 @@
+<div class="dashboard-container">
+    <div id="header-container"></div>
+
+    <div class="dash-content">
+        <div class="page-top-bar">
+            <h3 class="section-title">Write E-Diary</h3>
+            <span class="date-badge" id="diary-class-badge">Class IX</span>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 20px;">
+            <select id="diary-class-select" onchange="loadSubjects(this.value)">
+                <option value="Class IX">Class IX</option>
+                <option value="Class VIII">Class VIII</option>
+            </select>
+        </div>
+
+        <div id="subjects-container" class="subjects-list">
+            <!-- Subjects will be loaded dynamically here via JS -->
+            <div class="subject-card">
+                <div class="subject-header">
+                    <span class="subject-name">📘 Hindi</span>
+                </div>
+                <textarea class="subject-textarea" placeholder="Enter Hindi notes here..."></textarea>
+            </div>
+
+            <div class="subject-card">
+                <div class="subject-header">
+                    <span class="subject-name">📘 Maths</span>
+                </div>
+                <textarea class="subject-textarea" placeholder="Enter Maths notes here..."></textarea>
+            </div>
+        </div>
+
+        <button class="add-manual-btn" onclick="alert('Add Manual Subject Logic (Phase 2)')">
+            <i class="fa-solid fa-plus"></i> Add Manual Subject
+        </button>
+
+        <div class="sticky-bottom">
+            <button class="btn-primary" onclick="alert('Sent to Principal for Approval!')">Send for Principal Approval</button>
+        </div>
+    </div>
+</div>
