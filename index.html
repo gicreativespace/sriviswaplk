@@ -8,12 +8,12 @@
     <!-- PWA ADDITIONS -->
     <meta name="theme-color" content="#0F4C81">
     <link rel="manifest" href="/manifest.json">
-    <link rel="apple-touch-icon" href="assets/images/icon-192.png">
     
     <link rel="stylesheet" href="assets/css/global.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </head>
+    <link rel="stylesheet" href="sections/auth/role-selection.css">
+</head>
 <body>
 
     <!-- GLOBAL SPLASH SCREEN -->
@@ -24,15 +24,143 @@
 
     <!-- MAIN APP CONTAINER -->
     <div id="app-container">
-        <div id="section-role-selection" class="app-section"></div>
-    </div>
 
-    <!-- INSTALL APP BANNER -->
-    <div id="install-banner" class="install-banner">
-        <div class="install-text">
-            <i class="fa-solid fa-download"></i> Install Sri Viswa App
+        <!-- ================= SECTION 1: ROLE SELECTION ================= -->
+        <div id="section-role-selection" class="app-section">
+            <div class="role-container">
+                <div class="role-header">
+                    <h1>Welcome to<br><span>Sri Viswa</span></h1>
+                    <p>Please select your portal to continue</p>
+                </div>
+                
+                <div class="cards-container">
+                    <div class="role-card" onclick="selectPortal('school')">
+                        <div class="icon-box blue-icon"><i class="fa-solid fa-school"></i></div>
+                        <div class="text-box">
+                            <h3>School Portal</h3>
+                            <p>Staff, Teachers & Principal</p>
+                        </div>
+                        <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    </div>
+
+                    <div class="role-card" onclick="selectPortal('parent')">
+                        <div class="icon-box green-icon"><i class="fa-solid fa-people-roof"></i></div>
+                        <div class="text-box">
+                            <h3>Parent Portal</h3>
+                            <p>Track your child's progress</p>
+                        </div>
+                        <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button id="install-btn" class="install-btn">Install</button>
+
+        <!-- ================= SECTION 2: SCHOOL LOGIN ================= -->
+        <div id="section-school-login" class="app-section">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <button class="back-btn" onclick="showSection('role-selection')"><i class="fa-solid fa-arrow-left"></i></button>
+                    <h2>School Portal Login</h2>
+                    <p>Enter your phone number and PIN</p>
+                </div>
+                <form id="school-login-form" onsubmit="handleSchoolLogin(event)">
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="10-digit mobile number" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Master PIN</label>
+                        <input type="password" placeholder="Enter 6-digit PIN" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ================= SECTION 3: PRINCIPAL DASHBOARD ================= -->
+        <div id="section-principal-dashboard" class="app-section">
+            <div class="dashboard-container">
+                <header class="dash-header">
+                    <div class="header-left">
+                        <h2>Principal Dashboard</h2>
+                    </div>
+                    <button class="logout-btn" onclick="showSection('role-selection')">Logout</button>
+                </header>
+                <div class="dash-content">
+                    <div class="stats-grid">
+                        <div class="stat-card blue-bg">
+                            <h4>Total Staff</h4>
+                            <p>12</p>
+                        </div>
+                        <div class="stat-card green-bg">
+                            <h4>Pending Approvals</h4>
+                            <p>3</p>
+                        </div>
+                    </div>
+                    <h3 class="section-title">Pending Approvals (E-Diary & Notices)</h3>
+                    <div class="approval-card">
+                        <div class="approval-header">
+                            <span class="badge class-badge">Class 10A</span>
+                        </div>
+                        <p class="approval-text"><strong>Math:</strong> Complete chapter 5 exercises.</p>
+                        <div class="approval-actions">
+                            <button class="btn-approve"><i class="fa-solid fa-check"></i> Approve</button>
+                            <button class="btn-reject"><i class="fa-solid fa-xmark"></i> Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SECTION 4: ATTENDANCE (INCHARGE) ================= -->
+        <div id="section-attendance" class="app-section">
+            <div class="dashboard-container">
+                <header class="dash-header">
+                    <div class="header-left">
+                        <h2>Mark Attendance</h2>
+                    </div>
+                    <button class="logout-btn" onclick="showSection('role-selection')">Logout</button>
+                </header>
+                <div class="dash-content">
+                    <div class="page-top-bar">
+                        <span class="date-badge">26 Oct 2023</span>
+                    </div>
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <select>
+                            <option>Class IX (40 Students)</option>
+                        </select>
+                    </div>
+                    <div class="attendance-list">
+                        <div class="attendance-card">
+                            <div class="student-info">
+                                <span class="roll-badge">01</span>
+                                <span class="student-name">Ravi Kumar</span>
+                            </div>
+                            <div class="attendance-actions">
+                                <button class="att-btn active-p" onclick="markAttendance(this, 'P')">P</button>
+                                <button class="att-btn" onclick="markAttendance(this, 'A')">A</button>
+                                <button class="att-btn" onclick="markAttendance(this, 'L')">L</button>
+                            </div>
+                        </div>
+                        <div class="attendance-card">
+                            <div class="student-info">
+                                <span class="roll-badge">02</span>
+                                <span class="student-name">Sita Sharma</span>
+                            </div>
+                            <div class="attendance-actions">
+                                <button class="att-btn active-p" onclick="markAttendance(this, 'P')">P</button>
+                                <button class="att-btn" onclick="markAttendance(this, 'A')">A</button>
+                                <button class="att-btn" onclick="markAttendance(this, 'L')">L</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sticky-bottom">
+                        <button class="btn-primary" onclick="alert('Attendance Submitted!')">Submit Attendance</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- GLOBAL FOOTER -->
@@ -49,28 +177,13 @@
             </div>
             <p>For your digital needs, contact us!</p>
             <div class="contact-actions">
-                <a href="tel:8985361991" class="action-btn call-btn">
-                    <i class="fa-solid fa-phone"></i> Call Us
-                </a>
-                <a href="https://wa.me/918985361991" target="_blank" class="action-btn wa-btn">
-                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                </a>
+                <a href="tel:8985361991" class="action-btn call-btn"><i class="fa-solid fa-phone"></i> Call Us</a>
+                <a href="https://wa.me/918985361991" target="_blank" class="action-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
             </div>
-            <p class="hidden-trigger" onclick="openSuperAdmin()">Admin Access</p>
         </div>
     </div>
 
-    <script src="assets/js/main.js" type="module"></script>
-    
-    <!-- SERVICE WORKER REGISTRATION -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(reg => console.log('Service Worker Registered!', reg))
-                    .catch(err => console.log('Service Worker Error:', err));
-            });
-        }
-    </script>
+    <!-- Main Logic Script -->
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
